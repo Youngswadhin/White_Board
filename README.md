@@ -23,6 +23,5 @@ WhiteBoard is a web-based drawing application that allows users to draw shapes, 
 
 ## Setup
 
-1. **Clone the repository**:
-   ```bash
+
     https://github.com/Youngswadhin/whiteboard.git
