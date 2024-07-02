@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiteBoard</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/hamburger.css">
+    <link rel="stylesheet" href="./css/queries.css">
+    <style>
+        /* Include the CSS for the modal here if not in an external file */
+    </style>
+</head>
+<body>
+    <div id="mobileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>This application is not available on mobile devices. Please use a desktop browser.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="tools-board add-animation">
+            <div class="row">
+                <label class="title" for="title">Shapes</label>
+                <ul class="options">
+                    <li class="option tool" id="rectangle">
+                        <img src="./icons/rectangle.svg" alt="shapeImg" class="active" >
+                        <span>Rectangle</span>
+                    </li>
+                    <li class="option tool" id="triangle">
+                        <img src="./icons/triangle.svg" alt="shapeImg">
+                        <span>Triangle</span>
+                    </li>
+                    <li class="option tool" id="circle">
+                        <img src="./icons/circle.svg" alt="shapeImg" >
+                        <span>Circle</span>
+                    </li>
+                    <li class="optio ">
+                        <input type="checkbox" name="" id="fill-color">
+                        <label for="fill-color">Fill-Color</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <label  class="title" for="title">Options</label>
+                <ul class="options">
+                    <li class="option tool" id="brush">
+                        <img src="./icons/brush.svg" alt="toolImg">
+                        <span>Brush</span>
+                    </li>
+                    <li class="option tool" id="eraser">
+                        <img src="./icons/eraser.svg" alt="toolImg">
+                        <span>Eraser</span>
+                    </li>
+                    <li class="option">
+                        <input type="range" id="size-slider" min="1" max="30" value="5">
+                    </li>
+                </ul>
+            </div>
+            <div class="row colors">
+                <label  class="title" for="title">Colors</label>
+                <ul class="options">
+                    <li class="option"></li>
+                    <li class="option selected"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option">
+                        <input type="color" id="color-picker" value="#4a98f7">
+                    </li>
+                </ul>
+            </div>
+            <div class="row buttons">
+                <button class="undo">Undo</button>
+                <button class="redo">Redo</button>
+                <button class="clear-canvas">Clear Canvas</button>
+                <button class="save-img">Save As Image</button>
+            </div>
+        </section>
+        <section class="drawing-board add-size">
+            <canvas class="board"></canvas>
+        </section>
+    </div>
+    <script src="./js/common.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/tool.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("mobileModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Show the modal if the screen width is less than 768px
+        if (window.innerWidth < 768) {
+            modal.style.display = "block";
+        }
+    </script>
+</body>
+</html>
