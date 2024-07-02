@@ -5,6 +5,59 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+.wrapper {
+	font-size: 3rem;
+	height: 2em;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	
+	&.invert {
+		span {
+			color: black;
+			
+			&::before {
+				-webkit-text-stroke: .1em var(--color);
+			}
+		}
+	}
+	
+	span {
+		--color: #005bea;
+		font-family: Impact, 'Anton', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		font-weight: 700;
+		font-style: italic;
+		display: block;
+		position: absolute;
+		color: var(--color);
+		letter-spacing: -.005em;
+
+		&::before, &::after {
+			content: attr(data-text);
+			display: block;
+			position: relative;
+			padding: 0 .1em;
+			z-index: 1;
+		}
+
+		&::before {
+			position: absolute;
+			-webkit-text-stroke: .1em black;
+			z-index: 0;
+		}
+
+		&:first-child {
+			transform: translate(-.255em, -.25em);
+		}
+
+		&:last-child {
+			--color: #00c6fb;
+			transform: translate(.255em, .25em);
+		}
+	}
+}
 .title {
   display: block;
   background: white;
@@ -221,38 +274,38 @@ span:hover {
 
 /* Add this CSS to your style.css or within a <style> tag in your HTML */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-    padding-top: 60px; 
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
-    text-align: center;
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
